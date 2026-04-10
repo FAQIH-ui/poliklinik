@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? 'Poliklinik' }}</title>
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
-</head>
-<body class="bg-slate-50 p-8">
-
+<x-layouts.app>
+    {{-- Kode di bawah ini akan otomatis masuk ke bagian {{ $slot }} di layout --}}
+    
     <div class="mb-8">
         <h2 class="text-2xl font-extrabold text-slate-800 mb-1">
             Selamat Datang, {{ auth()->user()->name ?? 'Dokter' }} 👋
@@ -17,5 +10,4 @@
         </p>
     </div>
 
-</body>
-</html>
+</x-layouts.app>
