@@ -4,11 +4,31 @@
 
             {{-- Logo & Title --}}
             <div class="text-center mb-8">
-                <img src="{{ asset('images/logo-bengkot.png') }}"
+                <img src="{{ asset('image/logo-bengkot.png') }}"
                     class="w-[65px] h-[65px] mx-auto mb-4 block">
                 <h1 class="text-[1.6rem] font-bold text-[#1e2d6b] mb-1">Poliklinik</h1>
                 <p class="text-[0.85rem] text-slate-400">Masuk ke akun Anda</p>
             </div>
+
+            {{-- Tambahkan ini tepat di atas tag <form> --}}
+@if(session('error'))
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-lg mb-4 text-sm">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-lg mb-4 text-sm">
+        <ul class="list-disc list-inside">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+    
 
             <form action="{{ route('login') }}" method="POST">
                 @csrf
