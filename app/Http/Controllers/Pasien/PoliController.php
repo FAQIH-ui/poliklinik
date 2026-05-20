@@ -38,7 +38,7 @@ class PoliController extends Controller
             'id_pasien' => $request->id_pasien,
             'id_jadwal' => $request->id_jadwal,
             'keluhan' => $request->keluhan,
-            'no_antrian' => $jumlahSudahDaftar + 1,
+            'no_antri' => $jumlahSudahDaftar + 1,
         ]);
 
         return redirect()->back()->with('message', 'Berhasil Mendaftar ke Poli')->with('type', 'success');

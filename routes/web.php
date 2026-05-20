@@ -26,10 +26,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
 
-    Route::resource('polis', PoliController::class);
+    Route::resource('polis', AdminPoliController::class);
     Route::resource('dokter', DokterController::class);
     Route::resource('pasien', PasienController::class);
     Route::resource('obat', ObatController::class);
+    Route::post('obat/{id}/tambah-stok', [ObatController::class, 'tambahStok'])->name('obat.tambahStok');
+    Route::post('obat/{id}/kurangi-stok', [ObatController::class, 'kurangiStok'])->name('obat.kurangiStok');
 });
 
 Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () {
